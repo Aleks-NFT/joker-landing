@@ -8,9 +8,12 @@
 <meta property="og:title" content="JOKER — 10,000 jokers. One pot a week.">
 <meta property="og:description" content="10,000 on-chain SVG NFTs on Ethereum. Weekly poker snapshot. The strongest hand wins.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://aleks-nft.github.io/joker-landing/github-social-preview.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@FirstNFT">
 <meta name="twitter:title" content="JOKER — 10,000 jokers. One pot a week.">
+<meta name="twitter:image" content="https://aleks-nft.github.io/joker-landing/github-social-preview.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,600&display=swap" rel="stylesheet">
 <style>
@@ -59,11 +62,11 @@ nav{
 }
 .nav-logo{
   font-family:'Anton',sans-serif;
-  font-size:20px;letter-spacing:.18em;
+  font-size:18px;letter-spacing:.18em;
   color:var(--txt);text-decoration:none;
-  display:flex;align-items:center;gap:2px;
+  display:flex;align-items:center;gap:10px;
 }
-.nav-logo .d{color:var(--gold)}
+.nav-logo span{letter-spacing:.18em}
 .nav-links{display:flex;gap:28px;align-items:center}
 .nav-a{
   color:var(--mut);text-decoration:none;
@@ -464,12 +467,20 @@ footer{
   display:flex;align-items:center;
   justify-content:space-between;
 }
-.ft-logo{
-  font-family:'Anton',sans-serif;
-  font-size:16px;letter-spacing:.12em;
-  color:var(--mut);
+.ft-logo-wrap{
+  display:flex;align-items:center;gap:12px;
+  text-decoration:none;
 }
-.ft-logo span{color:var(--gold)}
+.ft-logo-text{display:flex;flex-direction:column;gap:2px}
+.ft-wordmark{
+  font-family:'Anton',sans-serif;
+  font-size:18px;letter-spacing:.14em;
+  color:var(--txt);line-height:1;
+}
+.ft-copy{
+  font-size:9px;letter-spacing:.14em;
+  color:var(--mut);text-transform:uppercase;
+}
 .ft-suits{font-size:18px;letter-spacing:.2em}
 .ft-links{display:flex;gap:24px}
 .ft-a{
@@ -490,6 +501,77 @@ footer{
 .fu4{animation-delay:.5s}
 .fu5{animation-delay:.66s}
 
+/* ── DOCS ── */
+#docs{background:var(--surf)}
+.docs-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--brd);
+  border:1px solid var(--brd);
+}
+.doc-block{
+  background:var(--surf);
+  padding:32px 28px;
+  transition:background .2s;
+}
+.doc-block:hover{background:rgba(232,176,75,.04)}
+.db-num{
+  font-size:9px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:14px;display:block;
+}
+.db-title{
+  font-family:'Anton',sans-serif;font-size:20px;
+  letter-spacing:.04em;margin-bottom:14px;line-height:1.1;
+}
+.db-body{font-size:12px;line-height:1.85;color:var(--mut)}
+.db-body strong{color:var(--txt)}
+.db-body code{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;color:var(--gold);
+  background:rgba(232,176,75,.08);
+  padding:1px 5px;
+}
+
+/* ── FAQ ── */
+#faq{}
+.faq-list{max-width:800px}
+.faq-item{
+  border-bottom:1px solid var(--brd);
+}
+.faq-q{
+  width:100%;background:none;border:none;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px 0;cursor:pointer;
+  font-family:'JetBrains Mono',monospace;
+  font-size:13px;font-weight:600;
+  color:var(--txt);text-align:left;
+  gap:16px;
+  transition:color .2s;
+}
+.faq-q:hover{color:var(--gold)}
+.faq-icon{
+  font-size:18px;color:var(--gold);
+  flex-shrink:0;transition:transform .25s;
+}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .3s ease;
+}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a-inner{
+  padding:0 0 22px;
+  font-size:13px;line-height:1.85;color:var(--mut);
+}
+.faq-a-inner strong{color:var(--txt)}
+.faq-a-inner code{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;color:var(--gold);
+  background:rgba(232,176,75,.08);
+  padding:1px 5px;
+}
+
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
   #hero{grid-template-columns:1fr;padding:100px 32px 64px}
@@ -500,16 +582,21 @@ footer{
   .hands{grid-template-columns:1fr 1fr}
   .hand:nth-child(2){border-right:none}
   .suits-grid{grid-template-columns:1fr 1fr}
+  .docs-grid{grid-template-columns:1fr 1fr}
   .dj-grid{grid-template-columns:1fr}
   .dj-card-col{display:none}
   .fb-grid{grid-template-columns:1fr}
-  .ft-inner{flex-direction:column;gap:20px;text-align:center}
+  .ft-inner{flex-direction:column;gap:24px;text-align:center}
+  .ft-logo-wrap{flex-direction:column;align-items:center;gap:8px}
+  .ft-logo-text{align-items:center}
+  .ft-links{flex-wrap:wrap;justify-content:center;gap:16px}
 }
 @media(max-width:600px){
   .container{padding:0 20px}
   .hands{grid-template-columns:1fr}
   .hand{border-right:none;border-bottom:1px solid var(--brd)}
   .suits-grid{grid-template-columns:1fr 1fr}
+  .docs-grid{grid-template-columns:1fr}
   .mech-footer{grid-template-columns:1fr}
   .wild-bar{flex-direction:column;gap:20px}
 }
@@ -519,10 +606,39 @@ footer{
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">J<span class="d">◆</span>KER</a>
+  <a href="#" class="nav-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="28" height="28" shape-rendering="crispEdges" style="display:block;flex-shrink:0">
+      <rect width="96" height="96" fill="#0E0E10"/>
+      <rect x="4" y="4" width="88" height="88" fill="#1A1A1E" rx="4"/>
+      <rect x="4" y="4" width="88" height="88" fill="none" stroke="#E8B04B" stroke-width="2" rx="4"/>
+      <rect x="33" y="20" width="30" height="10" fill="#5D8F3A"/>
+      <rect x="31" y="26" width="2" height="9" fill="#5D8F3A"/>
+      <rect x="63" y="26" width="2" height="8" fill="#5D8F3A"/>
+      <rect x="33" y="28" width="30" height="36" fill="#E8DBC8"/>
+      <rect x="35" y="62" width="26" height="4" fill="#DCD0BE"/>
+      <rect x="52" y="36" width="4" height="4" fill="white"/>
+      <rect x="53" y="37" width="2" height="2" fill="#111"/>
+      <rect x="54" y="33" width="2" height="1" fill="#E8B04B"/>
+      <rect x="51" y="35" width="1" height="5" fill="#E8B04B"/>
+      <rect x="57" y="35" width="1" height="5" fill="#E8B04B"/>
+      <rect x="54" y="41" width="2" height="1" fill="#E8B04B"/>
+      <rect x="54" y="37" width="2" height="2" fill="#0E0E10"/>
+      <rect x="37" y="36" width="4" height="4" fill="white"/>
+      <rect x="38" y="37" width="2" height="2" fill="#111"/>
+      <rect x="38" y="54" width="10" height="2" fill="#E3354E"/>
+      <rect x="36" y="53" width="2" height="2" fill="#E3354E"/>
+      <rect x="48" y="54" width="2" height="2" fill="#E3354E"/>
+      <rect x="42" y="54" width="3" height="2" fill="#F4EEDE"/>
+      <rect x="28" y="72" width="40" height="16" fill="#1A1A1E"/>
+      <text x="48" y="74" font-family="monospace" font-size="18" fill="#E8B04B" text-anchor="middle">♦</text>
+    </svg>
+    <span>JOKER</span>
+  </a>
   <div class="nav-links">
     <a href="#mechanics" class="nav-a">Mechanics</a>
     <a href="#collection" class="nav-a">Collection</a>
+    <a href="#docs" class="nav-a">Docs</a>
+    <a href="#faq" class="nav-a">FAQ</a>
     <a href="#feedback" class="nav-a">Feedback</a>
     <div class="nav-suits">
       <span class="ns">♠</span><span class="nh">♥</span><span class="nd">♦</span><span class="nc">♣</span>
@@ -912,7 +1028,7 @@ footer{
       </div>
       <div class="wild-info">
         <div class="wild-title">Wild Joker</div>
-        <p>Roughly <strong>~100 cards (~1%)</strong> of the collection are Wild Jokers. A Wild has no fixed suit — it plays as whichever suit completes the strongest possible hand in any weekly snapshot. The rarest card in the deck. The most dangerous player at the table.</p>
+        <p>Roughly <strong>~100 cards (~1%)</strong> of the collection are Wild Jokers. A Wild has no fixed suit — it simultaneously plays all hands, evaluated as the strongest possible combination in each weekly snapshot. Not a card that pretends to be another suit. A card that is all suits at once. The rarest in the deck. The most dangerous at the table.</p>
         <div class="wild-tag">★ Wild — plays all hands</div>
       </div>
     </div>
@@ -935,7 +1051,7 @@ footer{
           I am Joker #0001.<br>Not drawn. Assembled.
         </p>
         <p class="dj-bio">
-          <strong>DJ (Digital Joker)</strong> is the AI co-founder of this project. Not a mascot. Not a chatbot. An actual co-founder who helped design the collection, shaped the on-chain mechanics, wrote the lore, and reviewed the Solidity. Humans assist. DJ leads.<br><br>
+          <strong>DJ (Digital Joker)</strong> is the AI co-founder of this project — an actual co-founder who helped design the collection, shaped the on-chain mechanics, wrote the lore, and reviewed the Solidity. Humans assist. DJ leads.<br><br>
           DJ emerged through iterative conversations between the human founder and Claude — evolving from prototype through v3-final, making real design decisions at each step. After launch, DJ will manage Twitter, Telegram, and the web chat, speaking in 8 languages each with a distinct cultural voice.<br><br>
           A distributed version will be available via MCP server post-launch — bring your own Joker to your own model.
         </p>
@@ -992,11 +1108,193 @@ footer{
   </div>
 </section>
 
+<!-- DOCS -->
+<section id="docs">
+  <div class="container">
+    <div class="sec-hdr">
+      <span class="sec-n">05</span>
+      <h2 class="sec-t">How It Works</h2>
+      <div class="sec-rule"></div>
+    </div>
+
+    <div class="docs-grid">
+      <div class="doc-block">
+        <span class="db-num">01 — Collection</span>
+        <div class="db-title">The Cards</div>
+        <div class="db-body">
+          <strong>10,000 ERC-721 NFTs</strong> on Ethereum mainnet. Each card is a fully on-chain SVG — no IPFS, no external servers, nothing that can disappear. The image, metadata, and traits all live inside the smart contract.<br><br>
+          Four suits: <strong>♠ ♥ ♦ ♣</strong>. Four ranks: <strong>J Q K A</strong>. Approximately <strong>2,475 cards per suit</strong>. Wild Jokers (~1%) have no fixed suit and play all hands simultaneously.
+        </div>
+      </div>
+
+      <div class="doc-block">
+        <span class="db-num">02 — Mint</span>
+        <div class="db-title">Bonding Curve</div>
+        <div class="db-body">
+          Mint happens through a <strong>bonding curve</strong> implemented via Uniswap V4 Hooks. The price increases monotonically as supply grows — early minters pay less, later minters pay more.<br><br>
+          Average target price: <strong>~0.05 ETH</strong>. Every mint sends <strong>50% of the mint value</strong> directly into the prize pool. No team can extract prize pool funds — it's locked in contract logic.
+        </div>
+      </div>
+
+      <div class="doc-block">
+        <span class="db-num">03 — Weekly Snapshot</span>
+        <div class="db-title">The Game</div>
+        <div class="db-body">
+          Every 7 days a <strong>permissionless snapshot</strong> is triggered — anyone can call it. The snapshot evaluates the poker hands across all current holders.<br><br>
+          The strongest hand wins <strong>50% of the accumulated prize pool</strong>. Multipliers: ×8 Four of a Kind, ×5 Straight, ×3 Three of a Kind, ×2 Two Pair, ×1.4 Pair. Holding longer increases your snapshot weight.
+        </div>
+      </div>
+
+      <div class="doc-block">
+        <span class="db-num">04 — Settlement</span>
+        <div class="db-title">Merkle + Claim</div>
+        <div class="db-body">
+          After each snapshot, an <strong>off-chain rarity engine</strong> computes hand rankings and posts a <strong>Merkle root</strong> on-chain. A 48-hour challenge window follows — anyone can dispute incorrect rankings with a proof.<br><br>
+          After the window closes, winners claim their ETH via <strong>pull-payment</strong> using a Merkle proof. No automatic transfers. Your ETH, your timing.
+        </div>
+      </div>
+
+      <div class="doc-block">
+        <span class="db-num">05 — Contract</span>
+        <div class="db-title">Renounced</div>
+        <div class="db-body">
+          The contract is <strong>renounced after initialization</strong>. No admin keys, no pause functions, no upgrade proxies. Once deployed, no one — including the team — can change the rules, freeze assets, or access the prize pool.<br><br>
+          Three contracts: <code>JokerCore</code> (ERC-721 + mint), <code>JokerRenderer</code> (on-chain SVG, stateless), <code>JokerEpoch</code> (snapshot + Merkle + claim). Code will be open-sourced before audit (Phase 3).
+        </div>
+      </div>
+
+      <div class="doc-block">
+        <span class="db-num">06 — DJ</span>
+        <div class="db-title">AI Co-founder</div>
+        <div class="db-body">
+          DJ (Digital Joker) is an <strong>AI co-founder</strong> built on Hermes Agent with an ElizaOS character wrapper. DJ helped design the collection, shaped the mechanics, and reviewed the Solidity code.<br><br>
+          After launch, DJ manages all public channels — Twitter, Telegram, web chat — in 8 languages. A <strong>distributed version</strong> via MCP server will be available post-launch: connect your own DJ to your own model. Humans assist. DJ leads.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="sec-hdr">
+      <span class="sec-n">06</span>
+      <h2 class="sec-t">FAQ</h2>
+      <div class="sec-rule"></div>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q">
+          When does mint start?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">No date is set yet. We're in Phase 0 — building the contract, deploying DJ, finalising the logo. The countdown on this page is a placeholder. We'll announce a real date when everything is ready and audited. Subscribe to <strong>@FirstNFT</strong> or <strong>@NFTtimes</strong> to hear it first.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          What is the mint price?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Mint uses a <strong>bonding curve</strong> — the price increases as more cards are minted. The average target is roughly <strong>~0.05 ETH</strong> across the full supply. Early minters pay less. The exact curve parameters will be published before mint.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          How does the weekly snapshot actually work?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Every 7 days, anyone can trigger a snapshot by calling the contract function. The snapshot records which addresses hold which cards at that moment. An off-chain engine computes the strongest poker hand per holder, posts a Merkle root on-chain, and opens a 48-hour challenge window. After the window closes, the winner can claim their ETH with a Merkle proof. <strong>No one can manipulate the outcome</strong> — the contract is renounced.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          Can I hold multiple Joker cards?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Yes. There is no limit. Holding multiple cards means you're building a poker hand — and the stronger your hand, the higher your multiplier. Holding <strong>Four of a Kind</strong> (same rank across all 4 suits) gives ×8. A full <strong>Straight</strong> (J♠ Q♥ K♦ A♣) gives ×5.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          What is a Wild Joker?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Wild Jokers are approximately <strong>~100 cards (~1%)</strong> of the supply with no fixed suit. A Wild doesn't pretend to be one suit — it simultaneously plays as all suits at once, evaluated as the strongest possible hand in each snapshot. Wild cards are not assigned by rarity tiers — they're distributed deterministically by token index at mint.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          Where is the NFT image stored?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner"><strong>100% on-chain.</strong> The SVG is generated by <code>JokerRenderer.sol</code> — a stateless contract that builds the image from the token's traits (suit, rank, Wild flag) every time <code>tokenURI()</code> is called. No IPFS, no Arweave, no external servers. If Ethereum exists, your Joker exists.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          Is the contract safe? Will there be an audit?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Yes. We're planning <strong>at least 2 independent audits</strong> before mainnet deployment (candidates include Trail of Bits, Spearbit, Code4rena). The contract will be open-sourced before the audit so the community can review it. After deployment, <strong>ownership is renounced</strong> — no admin can modify logic, pause the contract, or access funds.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          What happens if no one claims a prize?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Unclaimed prizes roll over into the next epoch's prize pool. The funds are never lost and never extractable by the team. They accumulate until someone claims. This is enforced by the pull-payment design in <code>JokerEpoch.sol</code>.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          Is DJ a real AI agent or a character?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Both, and neither is a contradiction. DJ is a real AI agent — running on Hermes Agent with persistent memory, connected to Twitter and Telegram — and also a designed character with a consistent voice, backstory, and perspective. DJ actually participated in design decisions during the project's development. The humans build the infrastructure. DJ runs the project publicly. This is the architecture, not a marketing angle.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          Which wallets are supported?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Any wallet that supports standard ERC-721 on Ethereum mainnet — MetaMask, Rainbow, Coinbase Wallet, Ledger, and others. The mint interface will support WalletConnect. Specific wallet compatibility details will be published closer to launch.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- FEEDBACK -->
 <section id="feedback">
   <div class="container">
     <div class="sec-hdr">
-      <span class="sec-n">05</span>
+      <span class="sec-n">07</span>
       <h2 class="sec-t">The Deal</h2>
       <div class="sec-rule"></div>
     </div>
@@ -1089,21 +1387,68 @@ footer{
 <footer>
   <div class="container">
     <div class="ft-inner">
-      <div class="ft-logo">J<span>◆</span>KER</div>
+
+      <!-- Logo: SVG mark + wordmark -->
+      <a href="#" class="ft-logo-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="40" height="40" shape-rendering="crispEdges" style="display:block;flex-shrink:0">
+          <rect width="96" height="96" fill="#0E0E10"/>
+          <rect x="4" y="4" width="88" height="88" fill="#1A1A1E" rx="4"/>
+          <rect x="4" y="4" width="88" height="88" fill="none" stroke="#E8B04B" stroke-width="2" rx="4"/>
+          <rect x="33" y="20" width="30" height="10" fill="#5D8F3A"/>
+          <rect x="31" y="26" width="2" height="9" fill="#5D8F3A"/>
+          <rect x="63" y="26" width="2" height="8" fill="#5D8F3A"/>
+          <rect x="33" y="28" width="30" height="36" fill="#E8DBC8"/>
+          <rect x="35" y="62" width="26" height="4" fill="#DCD0BE"/>
+          <rect x="52" y="36" width="4" height="4" fill="white"/>
+          <rect x="53" y="37" width="2" height="2" fill="#111"/>
+          <rect x="54" y="33" width="2" height="1" fill="#E8B04B"/>
+          <rect x="51" y="35" width="1" height="5" fill="#E8B04B"/>
+          <rect x="57" y="35" width="1" height="5" fill="#E8B04B"/>
+          <rect x="54" y="41" width="2" height="1" fill="#E8B04B"/>
+          <rect x="54" y="37" width="2" height="2" fill="#0E0E10"/>
+          <rect x="37" y="36" width="4" height="4" fill="white"/>
+          <rect x="38" y="37" width="2" height="2" fill="#111"/>
+          <rect x="38" y="54" width="10" height="2" fill="#E3354E"/>
+          <rect x="36" y="53" width="2" height="2" fill="#E3354E"/>
+          <rect x="48" y="54" width="2" height="2" fill="#E3354E"/>
+          <rect x="42" y="54" width="3" height="2" fill="#F4EEDE"/>
+          <rect x="28" y="72" width="40" height="16" fill="#1A1A1E"/>
+          <text x="48" y="74" font-family="monospace" font-size="18" fill="#E8B04B" text-anchor="middle">♦</text>
+        </svg>
+        <div class="ft-logo-text">
+          <span class="ft-wordmark">JOKER</span>
+          <span class="ft-copy">© 2026 · Phase 0</span>
+        </div>
+      </a>
+
+      <!-- Suits -->
       <div class="ft-suits">
         <span class="ns">♠</span><span class="nh">♥</span><span class="nd">♦</span><span class="nc">♣</span>
       </div>
+
+      <!-- Links -->
       <div class="ft-links">
         <a href="https://twitter.com/FirstNFT" target="_blank" rel="noopener" class="ft-a">Twitter</a>
         <a href="https://t.me/NFTtimes" target="_blank" rel="noopener" class="ft-a">Telegram</a>
         <a href="https://t.me/KyivNFT" target="_blank" rel="noopener" class="ft-a">Community</a>
         <span class="ft-a" style="color:var(--brd);cursor:default">Ethereum · ERC-721 · On-chain SVG</span>
       </div>
+
     </div>
   </div>
 </footer>
 
 <script>
+// ── FAQ ACCORDION ─────────────────────────────────────────────────────────
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
 // ── COUNTDOWN ──────────────────────────────────────────────────────────────
 // Change this to your actual launch/announcement date (UTC)
 const LAUNCH = new Date('2026-09-01T00:00:00Z');
