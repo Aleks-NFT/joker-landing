@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 240">
+  
+  <g font-family="&#39;Anton&#39;, &#39;Bebas Neue&#39;, &#39;Impact&#39;, sans-serif" font-weight="400" font-size="180" letter-spacing="0.15em" fill="#0E0E10">
+    <text x="450" y="180" text-anchor="middle">JOKER</text>
+  </g>
+  
+  <g transform="translate(444,45) scale(4)">
+    <path fill="#E8B04B" d="M4 0.5 L7.5 4 L4 7.5 L0.5 4 Z"></path>
+  </g>
+</svg>
